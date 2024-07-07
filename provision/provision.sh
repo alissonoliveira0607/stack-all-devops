@@ -70,9 +70,15 @@ sleep 3
 echo "Habilitando o Docker na inicialização do sistema"
 sudo systemctl enable docker
 
+echo "Desabilitando IPV6 do docker"
+cat << EOF | sudo tee -a /etc/docker/daemon.json
+{
+  "ipv6": false
+}
+EOF
+
 echo "Incluindo os usuários no grupo do Docker"
 USERS=('vagrant' 'devops')
-
 # Verificar se o grupo docker existe
 if ! getent group docker > /dev/null 2>&1; then
     echo "O grupo 'docker' não existe no sistema"

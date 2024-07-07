@@ -7,7 +7,7 @@ PACKAGES="curl gnupg2 gpg software-properties-common apt-transport-https ca-cert
 # Opcional interface
 # sudo apt update
 # sudo apt install -y xfce4 xfce4-goodies
-# sudo apt install -yvirtualbox-guest-additions-iso
+# sudo apt install -y virtualbox-guest-additions-iso
 
 
 # Verifica se a chave SSH já existe no arquivo authorized_keys do usuário vagrant
@@ -136,7 +136,7 @@ sleep 6
 
 echo "Ajustando o pool de rede para o metalllb"
 sed -i 's/172.21.0.*/172.18.0.50-172.18.0.70/g' manifests/metallb-pool.yaml
-sed -i 's/172.21.0.*/172.18.0.50-172.18.0.70/g' manifests/setup-hosts.yaml
+sed -i 's/172.21.0.50/172.18.0.50/' manifests/setup-hosts.yaml
 
 echo "Ajustando permissões do helm"
 sudo chmod go-rw /home/$USER/.kube/config 2>/dev/null

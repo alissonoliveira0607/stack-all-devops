@@ -4,6 +4,12 @@ USER="devops"
 SSH_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDbC7fGQkGTjXERSAwLq7co5QXvahoXdG93m/Zx/+W1v+eme1ZohTCyi41MkcAJDr2KHSibwo6PE7WWjgYFAsZg/PNE6igI0D5VzC63T48tsK6ffxGFYy3rl0B/VyvHdfqe/vcw44zn6HRjF2q01DXV2NeSBZuJL+diclAcB+2jhrjha9iHWxxkJuxwFl76bAfhVdtNE6yC0It+aUtJLPT1ppcviGKpIyN1w6pGvWxk1pV+Pf6CdqU1FK05FeSPK+f34bSgIOin/DCNN6oBFgX2V5H/+Gf290bmlT9YGVSNZ0Y/HCK3Cetl3A+1j4YtbyANA3ju5mWeKeG8svzfphVRuOlKtwL+pVSrcnJuLIJqf4Nsq3PBAaPt9xzHk5vkmVfaMftQU0OXrgYhP2455SuuhpJe4LG3uyncRAXCK1AX7OoDI5jY6C4pZM00Vv+FOu5BYZLn28vr73B/rHBMzjnOCiouLbrYiCSL9VGtLcPTx4haoTWbm7fZSakyUhITI6M= alissonoliveira@ALISSON"
 PACKAGES="curl gnupg2 gpg software-properties-common apt-transport-https ca-certificates jq net-tools make"
 
+# Opcional interface
+# sudo apt update
+# sudo apt install -y xfce4 xfce4-goodies
+# sudo apt install -yvirtualbox-guest-additions-iso
+
+
 # Verifica se a chave SSH já existe no arquivo authorized_keys do usuário vagrant
 if ! grep -q -i "$SSH_KEY" /home/vagrant/.ssh/authorized_keys; then
     echo "Escrevendo a chave ssh no arquivo authorized_keys"

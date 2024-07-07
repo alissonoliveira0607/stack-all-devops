@@ -3,19 +3,15 @@ DEFAULT_GOAL := create_kind_cluster # Definindo o comando default caso não seja
 KIND_MANIFEST=config.yaml
 KIND_CLUSTER=kind
 
+# 
 install_metallb:
-	@kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
-	@kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
+	#@kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+	@kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
 	@kubectl wait --namespace metallb-system \
 		--for=condition=ready pod \
 		--selector=app=metallb \
 		--timeout=300s  
 	@kubectl apply -f manifests/
-
-install_helm:
-	@sudo snap install helm --classic
-	@chmod go-rw /home/$USER/.kube/config
-	@kubectl create namespace ingress-nginx
 
 venv:
 	@python3 -m venv  ./venv

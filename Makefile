@@ -33,6 +33,8 @@ install_ingress:
 	@helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	@helm repo update
 	@helm upgrade --install --namespace ingress-nginx --create-namespace -f values/ingress-nginx/values.yaml ingress-nginx ingress-nginx/ingress-nginx
+helm:
+	@helmfile apply
 
 config_hosts:
 	@if ! grep -q 'jenkins.localhost.com' /etc/hosts; then \
@@ -46,7 +48,7 @@ validate_hosts:
 	done
 
 # Cria o cluster e instala os pré requisitos
-up_cluster: create_kind_cluster install_metallb
+up_cluster: create_kind_cluster install_metallb helm
 
 .PHONY: venv create_kind_cluster delete_cluster stop_cluster start_cluster config_hosts validate_hosts
 

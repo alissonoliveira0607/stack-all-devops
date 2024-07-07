@@ -2,7 +2,9 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "generic/ubuntu2204"
+    #config.vm.box = "generic/ubuntu2204"
+    config.vm.box = "bento/ubuntu-22.04"
+    #config.vm.box = "alvistack/ubuntu-22.04"
     config.vm.network "public_network",bridge: "Ethernet"
     config.vm.hostname = "devops-stack"
   

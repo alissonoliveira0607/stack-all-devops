@@ -110,9 +110,11 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 echo "Instalando o helm"
-wget -O install_helm.sh https://git.io/get_helm.sh
-chmod +x install_helm.sh
-sudo bash -c './install_helm.sh'
+# wget -O install_helm.sh https://git.io/get_helm.sh
+# chmod +x install_helm.sh
+# sudo bash -c './install_helm.sh'
+#Versão 3 do helm
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash  
 
 echo "Ajustando permissões do helm"
 sudo chmod go-rw /home/$USER/.kube/config 2>/dev/null

@@ -1,0 +1,13 @@
+# Abstraindo a cexecução do helm em uma rquivo
+repositories:
+  - name: ingress-nginx
+    url: http://kubernetes.github.io/ingress-nginx
+
+releases:
+  - name: ingress-nginx
+    namespace: ingress-nginx
+    createNamespace: true
+    chart: ingress-nginx/ingress-nginx
+    version: 4.9.1
+    values:
+      - values/ingress-nginx/values.yaml

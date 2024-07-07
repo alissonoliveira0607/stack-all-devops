@@ -122,5 +122,15 @@ echo "Instalando o helm"
 #Versão 3 do helm
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash  
 
+
+git clone https://github.com/alissonoliveira0607/stack-all-devops.git
+cd stack-all-devops
+git checkout dev
+sleep 6
+
+echo "Ajustando o pool de rede para o metalllb"
+sed -i 's/172.21.0.*/172.18.0.50-172.18.0.70/g' manifests/metallb-pool.yaml
+sed -i 's/172.21.0.*/172.18.0.50-172.18.0.70/g' manifests/setup-hosts.yaml
+
 echo "Ajustando permissões do helm"
 sudo chmod go-rw /home/$USER/.kube/config 2>/dev/null

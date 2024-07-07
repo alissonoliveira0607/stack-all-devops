@@ -20,13 +20,19 @@ venv:
 	@python3 -m venv  ./venv
 	@source venv/bin/activate
 install_metallb:
-	@kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+	#@kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
 	@kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.5/config/manifests/metallb-native.yaml
 	@kubectl wait --namespace metallb-system \
 		--for=condition=ready pod \
 		--selector=app=metallb \
 		--timeout=600s  
 	@kubectl apply -f manifests/
+
+install_ingress:
+	@kubectl create namespace ingress-nginx
+	@helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+	@helm repo update
+	@helm upgrade --install --namespace ingress-nginx --create-namespace -f values/ingress-nginx/values.yaml ingress-nginx ingress-nginx/ingress-nginx
 
 config_hosts:
 	@if ! grep -q 'jenkins.localhost.com' /etc/hosts; then \
@@ -39,6 +45,7 @@ validate_hosts:
 		docker exec -ti $$container bash -c 'cat /etc/hosts'; \
 	done
 
+# Cria o cluster e instala os pré requisitos
 up_cluster: create_kind_cluster install_metallb
 
 .PHONY: venv create_kind_cluster delete_cluster stop_cluster start_cluster config_hosts validate_hosts

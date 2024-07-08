@@ -35,7 +35,8 @@ install_ingress:
 	@helm upgrade --install --namespace ingress-nginx --create-namespace -f values/ingress-nginx/values.yaml ingress-nginx ingress-nginx/ingress-nginx
 helm:
 	@helmfile apply
-
+passwd:
+	@kubectl get secret -n jenkins jenkins -o json | jq | jq -r '.data."jenkins-admin-password"'; echo '';
 config_hosts:
 	@if ! grep -q 'jenkins.localhost.com' /etc/hosts; then \
 		for container in $$(docker ps --filter "label=io.x-k8s.kind.role=worker" -q); do \

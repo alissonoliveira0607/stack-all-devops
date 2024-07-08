@@ -2,6 +2,8 @@
 repositories:
   - name: ingress-nginx
     url: http://kubernetes.github.io/ingress-nginx
+  - name: jenkins
+    url: https://charts.jenkins.io
 
 releases:
   - name: ingress-nginx
@@ -11,3 +13,10 @@ releases:
     version: 4.9.1
     values:
       - values/ingress-nginx/values.yaml
+  - name: jenkins
+    namespace: jenkins
+    createNamespace: true
+    chart: jenkins/jenkins
+    version: 5.3.3
+    values:
+      - values/jenkins/values.yaml

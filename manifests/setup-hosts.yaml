@@ -20,7 +20,7 @@ spec:
           - -c
           - |
             # Comando para adicionar entradas ao /etc/hosts, se não já existirem
-            grep -q jenkins /tmp/hosts || echo '172.21.0.50 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /tmp/hosts
+            grep -q jenkins /tmp/hosts || echo '172.18.0.50 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /tmp/hosts
         volumeMounts:
         - name: etc  # Montagem de volume
           mountPath: /tmp  # Montando o volume no /tmp do container para modificar o /etc/hosts

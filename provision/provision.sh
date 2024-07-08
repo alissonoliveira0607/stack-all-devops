@@ -121,13 +121,19 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
-echo "Instalando o helm"
+echo "Instalando o helm e helmfile"
 # wget -O install_helm.sh https://git.io/get_helm.sh
 # chmod +x install_helm.sh
 # sudo bash -c './install_helm.sh'
 #Versão 3 do helm
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash  
-
+wget -O helmfile https://github.com/roboll/helmfile/releases/download/v0.144.0/helmfile_linux_amd64
+chmod +x helmfile
+sudo mv helmfile /usr/local/bin/
+# Plugins helm
+# helm plugin add https://github.com/databus23/helm-diff
+# helm plugin install https://github.com/jkroepke/helm-secrets --version v4.2.2
+# helm plugin install https://github.com/aslafy-z/helm-git --version 0.14.3
 
 git clone https://github.com/alissonoliveira0607/stack-all-devops.git
 cd stack-all-devops

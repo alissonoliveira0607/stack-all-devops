@@ -40,7 +40,7 @@ passwd:
 config_hosts:
 	@if ! grep -q 'jenkins.localhost.com' /etc/hosts; then \
 		for container in $$(docker ps --filter "label=io.x-k8s.kind.role=worker" -q); do \
-			docker exec -ti $$container bash -c "grep -q 'jenkins.localhost.com' /etc/hosts || echo '172.21.0.50 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /etc/hosts"; \
+			docker exec -ti $$container bash -c "grep -q 'jenkins.localhost.com' /etc/hosts || echo '172.18s.0.50 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /etc/hosts"; \
 		done; \
 	fi
 validate_hosts:

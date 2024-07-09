@@ -25,7 +25,7 @@ install_metallb:
 	@kubectl wait --namespace metallb-system \
 		--for=condition=ready pod \
 		--selector=app=metallb \
-		--timeout=600s  
+		--timeout=900s  
 	@kubectl apply -f manifests/
 
 install_ingress:

@@ -37,7 +37,7 @@ helm:
 	@helmfile apply
 passwd:
 	@echo "JENKINS: "
-	@kubectl get secret -n jenkins jenkins -o json | jq -r '.data."jenkins-admin-password"' | base64 -d
+	@kubectl get secret -n jenkins jenkins -o json | jq -r '.data."jenkins-admin-password"' | base64 -d; echo '';
 config_hosts:
 	@if ! grep -q 'jenkins.localhost.com' /etc/hosts; then \
 		for container in $$(docker ps --filter "label=io.x-k8s.kind.role=worker" -q); do \

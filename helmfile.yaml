@@ -10,6 +10,8 @@ repositories:
     url: https://helm.goharbor.io
   - name: sonarqube
     url: https://SonarSource.github.io/helm-chart-sonarqube
+  - name: argo
+    url: https://argoproj.github.io/argo-helm
 releases:
   - name: ingress-nginx
     namespace: ingress-nginx
@@ -46,3 +48,10 @@ releases:
     version: 10.4.0+2288
     values:
       - values/sonarqube/values.yaml
+  - name: argo
+    namespace: argo
+    createNamespace: true
+    chart: argo/argo-cd
+    version: 6.2.3
+    values:
+      - values/argo/values.yaml

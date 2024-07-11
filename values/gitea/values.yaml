@@ -491,7 +491,7 @@ gitea:
 ## Redis cluster and [Redis](#redis) cannot be enabled at the same time.
 ## @descriptionEnd
 redis-cluster:
-  enabled: true  # Caso comece a dar problema no redis basta desabilitar o cache
+  enabled: false  # Caso comece a dar problema no redis basta desabilitar o cache
   usePassword: false
   cluster:
     nodes: 3 # default: 6

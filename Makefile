@@ -54,6 +54,4 @@ validate_hosts:
 # Cria o cluster e instala os pré requisitos
 up_cluster: create_kind_cluster install_metallb helm
 
-.PHONY: venv create_kind_cluster delete_cluster stop_cluster start_cluster config_hosts validate_hosts
-
- 
+.PHONY: venv create_kind_cluster delete_cluster stop_cluster start_cluster config_hosts validate_hosts 

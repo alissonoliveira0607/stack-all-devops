@@ -39,7 +39,7 @@ crds:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.example.com
+  domain: argocd.devops.local
 
   # -- Common labels for the all resources
   additionalLabels: {}
@@ -238,7 +238,7 @@ configs:
     ## Server properties
     # -- Run server without TLS
     ## NOTE: This value should be set when you generate params by other means as it changes ports used by ingress template.
-    server.insecure: true
+    server.insecure: true # Quando true é utilizado para rodar sem TLS
     # -- Value for base href in index.html. Used if Argo CD is running behind reverse proxy under subpath different from /
     server.basehref: /
     # -- Used if Argo CD is running behind reverse proxy under subpath different from /
@@ -1988,7 +1988,7 @@ server:
 
     # -- Argo CD server hostname
     # @default -- `""` (defaults to global.domain)
-    hostname: "argocd.localhost.com"
+    hostname: "argocd.devops.local"
 
     # -- The path to Argo CD server
     path: /

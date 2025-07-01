@@ -20,13 +20,13 @@ spec:
           - -c
           - |
             # Comando para adicionar entradas ao /etc/hosts, se não já existirem
-            grep -q jenkins /tmp/hosts || echo '172.18.0.50 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /tmp/hosts
+            grep -q jenkins /tmp/hosts || echo '192.168.15.100 argocd.localhost.com jenkins.localhost.com gitea.localhost.com sonarqube.localhost.com harbor.localhost.com' >> /tmp/hosts
         volumeMounts:
         - name: etc  # Montagem de volume
           mountPath: /tmp  # Montando o volume no /tmp do container para modificar o /etc/hosts
       containers:
       - name: stop  # Nome do container principal (neste caso, um container de pausa)
-        image: gcr.io/google-containers/pause:2.0  # Imagem do container de pausa
+        image: gcr.io/google-containers/pause:latest  # Imagem do container de pausa
       volumes:
       - name: etc  # Definindo o volume
         hostPath:

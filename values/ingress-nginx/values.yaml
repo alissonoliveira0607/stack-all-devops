@@ -213,7 +213,7 @@ controller:
 
   # -- `minReadySeconds` to avoid killing pods before we are ready
   ##
-  minReadySeconds: 0
+  minReadySeconds: 1
   # -- Node tolerations for server scheduling to nodes with taints
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##
@@ -966,7 +966,7 @@ defaultBackend:
 
   # -- `minReadySeconds` to avoid killing pods before we are ready
   ##
-  minReadySeconds: 0
+  minReadySeconds: 1
   # -- Node tolerations for server scheduling to nodes with taints
   ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
   ##

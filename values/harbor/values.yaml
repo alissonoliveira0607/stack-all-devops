@@ -28,7 +28,7 @@ expose:
       secretName: ""
   ingress:
     hosts:
-      core: harbor.localhost.com  # Definindo o host raiz
+      core: harbor.devops.local  # Definindo o host raiz
     # set to the type of ingress controller if it has specific requirements.
     # leave as `default` for most ingress controllers.
     # set to `gce` if using the GCE ingress controller
@@ -110,7 +110,7 @@ expose:
 # the IP address of k8s node
 #
 # If Harbor is deployed behind the proxy, set it as the URL of proxy
-externalURL: http://harbor.localhost.com  # Ajustando a url que será exposta que está atrá do crontoller nginx
+externalURL: http://harbor.devops.local  # Ajustando a url que será exposta que está atrá do crontoller nginx
 
 # The persistence is enabled by default and a default StorageClass
 # is needed in the k8s cluster to provision volumes dynamically.

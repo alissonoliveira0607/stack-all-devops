@@ -103,7 +103,7 @@ ingress:
   enabled: true
   # Used to create an Ingress record.
   hosts:
-    - name: sonarqube.localhost.com
+    - name: sonarqube.devops.local
       # Different clouds or configurations might need /* as the default path
       # path: /
       # For additional control over serviceName and servicePort

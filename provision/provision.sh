@@ -141,8 +141,8 @@ git checkout dev
 sleep 6
 
 echo "Ajustando o pool de rede para o metalllb"
-sed -i 's/172.21.0.*/172.18.0.50-172.18.0.70/g' manifests/metallb-pool.yaml
-sed -i 's/172.21.0.50/172.18.0.50/' manifests/setup-hosts.yaml
+sed -i 's/172.21.0.*/172.23.0.100-172.23.0.120/g' manifests/metallb-pool.yaml
+sed -i 's/172.21.0.50/172.23.0.100/' manifests/setup-hosts.yaml
 
 echo "Ajustando permissões do helm"
 sudo chmod go-rw /home/$USER/.kube/config 2>/dev/null

@@ -26,7 +26,7 @@ releases:
     namespace: jenkins
     createNamespace: true
     chart: jenkins/jenkins
-    version: 5.3.3
+    version: 5.8.55
     values:
       - values/jenkins/values.yaml
   - name: gitea

@@ -25,11 +25,11 @@ install_metallb:
 	@kubectl wait --namespace metallb-system \
 		--for=condition=ready pod \
 		--selector=app=metallb \
-		--timeout=900s  
-	@kubectl apply -f manifests/
+		--timeout=120s  
+	@kubectl apply -f manifests/metallb-pool.yaml
 
 install_ingress:
-	@kubectl create namespace ingress-nginx
+	#@kubectl create namespace ingress-nginx || true
 	@helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 	@helm repo update
 	@helm upgrade --install --namespace ingress-nginx --create-namespace -f values/ingress-nginx/values.yaml ingress-nginx ingress-nginx/ingress-nginx

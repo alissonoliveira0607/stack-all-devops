@@ -166,7 +166,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: gitea.localhost.com
+    - host: gitea.devops.local
       paths:
         - path: /
           pathType: Prefix

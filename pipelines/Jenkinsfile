@@ -30,7 +30,7 @@ spec:
             //     sh 'hostname'
             // }
             defaultContainer 'shell'
-            retries 2
+            retries 3
         }
     }
     stages {

@@ -50,6 +50,9 @@ validate_hosts:
 	@for container in $$(docker ps --filter "label=io.x-k8s.kind.role=worker" -q); do \
 		docker exec -ti $$container bash -c 'cat /etc/hosts'; \
 	done
+push_all:
+	git push origin main
+	git push devops main
 
 # Cria o cluster e instala os pré requisitos
 up_cluster: create_kind_cluster install_metallb helm
